@@ -1,7 +1,8 @@
-# Safety Data Simulation
+# Simulation Study
+
+``Data Generation``
 
 ```
-# Data Generation
 trainMA <- function(n.study, n.AE, n.cancer, n.drug, ss, spar, b, mu_u){
 
   study=rep(1:n.study, n.AE)
@@ -76,10 +77,13 @@ trainMA <- function(n.study, n.AE, n.cancer, n.drug, ss, spar, b, mu_u){
   # by descending order 
   df <- df[order(-Y),]
 }
+```
 
-# model fitting
+`` model fitting``
+### scenario: 0% missing
+```
 horseshoeJAGS0 <- function(df){
-  # scenario: 0% missing
+
   attach(df)
   J1 <- length(Y)
   n.drug <- length(table(drug))
@@ -125,10 +129,12 @@ horseshoeJAGS0 <- function(df){
   stopCluster(cl)
   m1
 }
+```
 
+###  scenario: 80% missing
+```
 horseshoeJAGS2 <- function(df){
   attach(df)
-  # scenario: 80% missing
   cut = df$Y[nrow(df)*0.2+1]
   # indicator
   df$delta <- c(rep(1, nrow(df)*0.2),
