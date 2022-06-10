@@ -1,6 +1,6 @@
 # Simulation Study
 
-``Data Generation``
+## Data Generation
 
 ```
 trainMA <- function(n.study, n.AE, n.cancer, n.drug, ss, spar, b, mu_u){
@@ -79,8 +79,8 @@ trainMA <- function(n.study, n.AE, n.cancer, n.drug, ss, spar, b, mu_u){
 }
 ```
 
-`` model fitting``
-### scenario: 0% missing
+## model fitting 
+### scenario: 0% censoring
 ```
 horseshoeJAGS0 <- function(df){
 
@@ -131,7 +131,7 @@ horseshoeJAGS0 <- function(df){
 }
 ```
 
-###  scenario: 80% missing
+###  scenario: 80% censoring
 ```
 horseshoeJAGS2 <- function(df){
   attach(df)
