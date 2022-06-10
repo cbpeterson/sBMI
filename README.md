@@ -2,9 +2,9 @@
 
 
 ### Objective:
-To simultaneously identify nonzero interactions and high-risk groups with an elevated probability of adverse events and to address a key challenge in the meta-analysis of safety data.
+A sparse Bayesian model with interaciton selection using horsehsoe prior (sBMI) to simultaneously identify nonzero interactions and high-risk groups with an elevated probability of adverse events and to address a key challenge in the meta-analysis of safety data.
 
-## The sparse Bayesian model with interaction selection using horseshoe prior (sBMI) in JAGS
+### Model specification in JAGS
 ```
 model {
         # Observed data
