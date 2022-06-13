@@ -113,6 +113,10 @@ horseshoeJAGS0 <- function(df){
                   "beta1", "tau1",
                   "beta2", "tau2", "beta3", "tau3",
                   "sigma.study","sigma.AE", "sigma.cancer", "sigma.drug")
+                  
+  #system.time(model.1 <- jags.model("model.file.txt", data, inits, n.chains=3, n.adapt=1000))
+  #system.time(update(model.1,30000)) 
+  #system.time(m1 <- coda.samples(model=model.1, variable.names=parameters, n.iter=30000, thin=3))
   
   #Parallel computing with JAGS
   library(dclone)
@@ -184,6 +188,10 @@ horseshoeJAGS2 <- function(df){
                   "mu.adj", "p.study.adj", "p.drug.adj", "p.cancer.adj", "p.AE.adj",
                   "beta1", "tau1", "beta2", "tau2", "beta3", "tau3",
                   "sigma.study","sigma.AE", "sigma.cancer", "sigma.drug")
+              
+  #system.time(model.2 <- jags.model("model.file.txt", data, inits, n.chains=3, n.adapt=1000))
+  #system.time(update(model.2,30000)) 
+  #system.time(m2 <- coda.samples(model=model.2, variable.names=parameters, n.iter=30000, thin=3))
   
   #Parallel computing with JAGS
   library(dclone)
