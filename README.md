@@ -12,7 +12,7 @@ model {
         # Likelihood
         Y[j] ~ dbin(theta[j], N[j])
         logit(theta[j]) <- theta.v1[v1[j]] + theta.v2[v2[j]] + theta.v3[v3[j]] +
-                            theta.v4[v4[j]] + beta1[v5[j]] + beta2[v6[j]] + beta3[v7[j]]
+                            theta.v4[v4[j]] + b1[v5[j]] + b2[v6[j]] + b3[v7[j]]
         }
         
         # Censored data
@@ -21,7 +21,7 @@ model {
         W[j] ~ dbern(p[j])
         p[j] <- pbin(cut[j], theta[j+J1], N[j+J1]) # Pr(Y<=cut)
         logit(theta[j+J1]) <- theta.v1[v1[j+J1]] + theta.v2[v2[j+J1]] + theta.v3[v3[j+J1]] +
-                              theta.v4[v4[j+J1]] + beta1[v5[j+J1]] + beta2[v6[j+J1]] + beta3[v7[j+J1]]
+                              theta.v4[v4[j+J1]] + b1[v5[j+J1]] + b2[v6[j+J1]] + b3[v7[j+J1]]
         }
         
         for (i1 in 1:n.v1) {
@@ -34,7 +34,7 @@ model {
         ... # same priors on other main coefficients: v2, v3, v4
         
         for (k1 in 1:n.v5) {
-        beta1[k1] ~ dnorm(0, prec1[k1])
+        b1[k1] ~ dnorm(0, prec1[k1])
         # precision = 1/variance
         prec1[k1] <- pow(sigma1[k1], -2)
         sigma1[k1] <- lambda1[k1] * tau1
@@ -48,4 +48,4 @@ model {
 }
 
 ```
-The R code to apply the proposed method, sBMI, to simulation and case study is available in the ``R_program.md``.
+The R code to apply the proposed method, sBMI, to simulation and case study is available in the ``R_program.md``. A study-level safety data set reporting treatment-related all-grade and grade 3 or higher adverse events for cancer immunotherapy drugs across 125 clinical studies collected from 2011 to 2018 can be found in the Data folder.
