@@ -1,6 +1,9 @@
 ## Bayesian sparse modeling of censored safety data in meta-analysis
 
 
+- Code author: [Xinyue Qi](https://github.com/xinyue-qi)
+- Publication: Qi X, Zhou S, Wang Y, Peterson CB. Bayesian sparse modeling to identify high-risk subgroups in meta-analysis of safety data. *Research Synthesis Methods*.
+
 ### Objective:
 A sparse Bayesian model with interaciton selection using horsehsoe prior (sBMI) is proposed to simultaneously identify nonzero interactions and high-risk groups with an elevated probability of adverse events and to address a key challenge in the meta-analysis of safety data.
 
